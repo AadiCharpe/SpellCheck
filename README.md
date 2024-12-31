@@ -1,0 +1,1 @@
+A simple Java project that checks spelling and tells you words that are misspelled. Note: This program will not know the latest words in the English language, but 99.9% of words you will use will work.
