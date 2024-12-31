@@ -49,7 +49,7 @@ class SpellCheckFrame extends JFrame {
         check.addActionListener(e -> {
             mistakes.setText("");
             boolean mistake = false;
-            StringTokenizer tokenizer = new StringTokenizer(text.getText(), " \n\t.?!,\"/()[]{}<>|");
+            StringTokenizer tokenizer = new StringTokenizer(text.getText(), " \n\t.?!,\"/()[]{}<>|:';-_~\\&");
             while(tokenizer.hasMoreTokens()) {
                 String token = tokenizer.nextToken().toLowerCase();
                 if(!(token.equals("a") || token.equals("i") || englishWords.contains(token))) {
