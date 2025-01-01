@@ -50,11 +50,16 @@ class SpellCheckFrame extends JFrame {
             mistakes.setText("");
             boolean mistake = false;
             StringTokenizer tokenizer = new StringTokenizer(text.getText(), " \n\t.?!,\"/()[]{}<>|:';-_~\\&");
+            int i = 0, lines = 1;
             while(tokenizer.hasMoreTokens()) {
                 String token = tokenizer.nextToken().toLowerCase();
                 if(!(token.equals("a") || token.equals("i") || englishWords.contains(token))) {
+                    for(; i < text.getText().indexOf(token, i); i++)
+                        if(text.getText().charAt(i) == '\n')
+                            lines++;
+                    i++;
                     mistakes.setForeground(Color.RED);
-                    mistakes.append("Misspelled \"" + token + "\"\n");
+                    mistakes.append("Misspelled \"" + token + "\" on line " + lines + "\n");
                     mistake = true;
                 }
             }
